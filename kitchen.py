@@ -13,7 +13,7 @@ class Quantity:
         return f"Quantity({self.amount}, {self.unit!r})"
     
     def plus(self, other):
-        return grams(500)
+        return Sum(self, other)
 
 def grams(amount):
     return Quantity(amount, "g")
@@ -24,3 +24,8 @@ def ounces(amount):
 class Converter:
     def reduce(self, source, unit):
         return source
+
+class Sum:
+    def __init__(self, left, right):
+        self.left = left
+        self.right = right
